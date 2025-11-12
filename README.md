@@ -1,234 +1,465 @@
-# 每日AI资讯网站 📰[bep]: https://github.com/bep
+# 每日AI资讯网站 📰# 每日AI资讯网站 📰[bep]: https://github.com/bep
 
-[bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
 
-🎉 一个基于 Hugo + PaperMod 主题的静态资讯展示网站已成功搭建！[contributing]: CONTRIBUTING.md
 
-[create a proposal]: https://github.com/gohugoio/hugo/issues/new?labels=Proposal%2C+NeedsTriage&template=feature_request.md
+🎉 一个基于 Hugo + PaperMod 主题的静态资讯展示网站[bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
 
-## 📁 项目结构[documentation repository]: https://github.com/gohugoio/hugoDocs
 
-[documentation]: https://gohugo.io/documentation
 
-```[dragonfly bsd, freebsd, netbsd, and openbsd]: https://gohugo.io/installation/bsd
+## 📁 项目结构🎉 一个基于 Hugo + PaperMod 主题的静态资讯展示网站已成功搭建！[contributing]: CONTRIBUTING.md
 
-daily_ai_news_blog/[features]: https://gohugo.io/about/features/
 
-├── hugo.exe              # Hugo 静态网站生成器（v0.146.0）[forum]: https://discourse.gohugo.io
 
-├── ai-news-site/         # 网站源码目录[friends]: https://github.com/gohugoio/hugo/graphs/contributors
+```[create a proposal]: https://github.com/gohugoio/hugo/issues/new?labels=Proposal%2C+NeedsTriage&template=feature_request.md
 
-│   ├── content/         # 内容目录[go]: https://go.dev/
+daily_ai_news_blog/
 
-│   │   ├── posts/      # AI资讯文章存放处[hugo modules]: https://gohugo.io/hugo-modules/
+├── .github/            # GitHub Actions 配置## 📁 项目结构[documentation repository]: https://github.com/gohugoio/hugoDocs
 
-│   │   ├── archives.md # 归档页面[installation]: https://gohugo.io/installation
+│   └── workflows/
+
+│       └── deploy.yml  # 自动部署到 GitHub Pages[documentation]: https://gohugo.io/documentation
+
+├── content/            # 内容目录
+
+│   ├── posts/         # AI资讯文章存放处```[dragonfly bsd, freebsd, netbsd, and openbsd]: https://gohugo.io/installation/bsd
+
+│   ├── archives.md    # 归档页面
+
+│   └── search.md      # 搜索页面daily_ai_news_blog/[features]: https://gohugo.io/about/features/
+
+├── themes/            # 主题目录
+
+│   └── PaperMod/      # PaperMod 主题 (Git Submodule)├── hugo.exe              # Hugo 静态网站生成器（v0.146.0）[forum]: https://discourse.gohugo.io
+
+├── archetypes/        # 文章模板
+
+├── hugo.toml          # 网站配置文件├── ai-news-site/         # 网站源码目录[friends]: https://github.com/gohugoio/hugo/graphs/contributors
+
+├── public/            # 生成的静态文件（构建后）
+
+├── start-server.bat   # 启动开发服务器│   ├── content/         # 内容目录[go]: https://go.dev/
+
+├── build.bat          # 构建生产版本
+
+├── new-post.bat       # 快速创建新文章│   │   ├── posts/      # AI资讯文章存放处[hugo modules]: https://gohugo.io/hugo-modules/
+
+├── GITHUB_PUSH_GUIDE.md  # GitHub 推送指南
+
+└── README.md          # 项目说明文档│   │   ├── archives.md # 归档页面[installation]: https://gohugo.io/installation
+
+```
 
 │   │   └── search.md   # 搜索页面[issue queue]: https://github.com/gohugoio/hugo/issues
 
-│   ├── themes/         # 主题目录[linux]: https://gohugo.io/installation/linux
-
-│   │   └── PaperMod/   # 简约美观的 PaperMod 主题[macos]: https://gohugo.io/installation/macos
-
-│   ├── hugo.toml       # 网站配置文件[prebuilt binary]: https://github.com/gohugoio/hugo/releases/latest
-
-│   ├── public/         # 生成的静态文件（构建后）[requesting help]: https://discourse.gohugo.io/t/requesting-help/9132
-
-│   └── README.md       # 详细说明文档[spf13]: https://github.com/spf13
-
-├── start-server.bat    # 启动开发服务器（一键启动）[static site generator]: https://en.wikipedia.org/wiki/Static_site_generator
-
-├── build.bat          # 构建生产版本[support]: https://discourse.gohugo.io
-
-└── new-post.bat       # 快速创建新文章[themes]: https://themes.gohugo.io/
-
-```[website]: https://gohugo.io
-
-[windows]: https://gohugo.io/installation/windows
-
 ## 🚀 快速开始
 
-<a href="https://gohugo.io/"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="565"></a>
+│   ├── themes/         # 主题目录[linux]: https://gohugo.io/installation/linux
 
 ### 方法 1：使用批处理脚本（推荐）
 
-A fast and flexible static site generator built with love by [bep], [spf13], and [friends] in [Go].
+│   │   └── PaperMod/   # 简约美观的 PaperMod 主题[macos]: https://gohugo.io/installation/macos
 
 1. **启动开发服务器**
 
-   ```---
+   ```│   ├── hugo.toml       # 网站配置文件[prebuilt binary]: https://github.com/gohugoio/hugo/releases/latest
 
    双击 start-server.bat
 
-   浏览器访问：http://localhost:1313[![GoDoc](https://godoc.org/github.com/gohugoio/hugo?status.svg)](https://godoc.org/github.com/gohugoio/hugo)
-
-   ```[![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
-
-[![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
-
-2. **创建新文章**
-
-   ```[Website] | [Installation] | [Documentation] | [Support] | [Contributing] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
-
-   双击 new-post.bat
-
-   按提示输入文章标题和文件名## Overview
+   浏览器访问：http://localhost:1313│   ├── public/         # 生成的静态文件（构建后）[requesting help]: https://discourse.gohugo.io/t/requesting-help/9132
 
    ```
 
-Hugo is a [static site generator] written in [Go], optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
+│   └── README.md       # 详细说明文档[spf13]: https://github.com/spf13
+
+2. **创建新文章**
+
+   ```├── start-server.bat    # 启动开发服务器（一键启动）[static site generator]: https://en.wikipedia.org/wiki/Static_site_generator
+
+   双击 new-post.bat
+
+   按提示输入文章标题和文件名├── build.bat          # 构建生产版本[support]: https://discourse.gohugo.io
+
+   ```
+
+└── new-post.bat       # 快速创建新文章[themes]: https://themes.gohugo.io/
 
 3. **构建生产版本**
 
-   ```Due to its flexible framework, multilingual support, and powerful taxonomy system, Hugo is widely used to create:
+   ``````[website]: https://gohugo.io
 
    双击 build.bat
 
-   静态文件生成在 ai-news-site\public\ 目录- Corporate, government, nonprofit, education, news, event, and project sites
+   静态文件生成在 public\ 目录[windows]: https://gohugo.io/installation/windows
 
-   ```- Documentation sites
+   ```
 
-- Image portfolios
+## 🚀 快速开始
 
-### 方法 2：使用命令行- Landing pages
+### 方法 2：使用命令行
 
-- Business, professional, and personal blogs
+<a href="https://gohugo.io/"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/static/images/hugo-logo-wide.svg?sanitize=true" alt="Hugo" width="565"></a>
 
-```bash- Resumes and CVs
+```bash
 
-# 启动开发服务器
+# 启动开发服务器（需要 hugo.exe）### 方法 1：使用批处理脚本（推荐）
 
-.\hugo.exe server -D --source ai-news-siteUse Hugo's embedded web server during development to instantly see changes to content, structure, behavior, and presentation. Then deploy the site to your host, or push changes to your Git provider for automated builds and deployment.
+.\hugo.exe server -D
 
+A fast and flexible static site generator built with love by [bep], [spf13], and [friends] in [Go].
 
+# 创建新文章
 
-# 创建新文章Hugo's fast asset pipelines include:
-
-.\hugo.exe new posts/my-article.md --source ai-news-site
-
-- Image processing &ndash; Convert, resize, crop, rotate, adjust colors, apply filters, overlay text and images, and extract EXIF data
-
-# 构建生产版本- JavaScript bundling &ndash; Transpile TypeScript and JSX to JavaScript, bundle, tree shake, minify, create source maps, and perform SRI hashing.
-
-.\hugo.exe --source ai-news-site- Sass processing &ndash; Transpile Sass to CSS, bundle, tree shake, minify, create source maps, perform SRI hashing, and integrate with PostCSS
-
-```- Tailwind CSS processing &ndash; Compile Tailwind CSS utility classes into standard CSS, bundle, tree shake, optimize, minify, perform SRI hashing, and integrate with PostCSS
+.\hugo.exe new posts/my-article.md1. **启动开发服务器**
 
 
 
-## ✨ 网站特性And with [Hugo Modules], you can share content, assets, data, translations, themes, templates, and configuration with other projects via public or private Git repositories.
+# 构建生产版本   ```---
+
+.\hugo.exe
+
+```   双击 start-server.bat
 
 
 
-### PaperMod 主题优势See the [features] section of the documentation for a comprehensive summary of Hugo's capabilities.
+## ✨ 网站特性   浏览器访问：http://localhost:1313[![GoDoc](https://godoc.org/github.com/gohugoio/hugo?status.svg)](https://godoc.org/github.com/gohugoio/hugo)
+
+
+
+### PaperMod 主题优势   ```[![Tests on Linux, MacOS and Windows](https://github.com/gohugoio/hugo/workflows/Test/badge.svg)](https://github.com/gohugoio/hugo/actions?query=workflow%3ATest)
 
 - ✅ **简约美观** - 专注内容展示
 
-- 📱 **完全响应式** - 完美支持移动端## Sponsors
+- 📱 **完全响应式** - 完美支持移动端[![Go Report Card](https://goreportcard.com/badge/github.com/gohugoio/hugo)](https://goreportcard.com/report/github.com/gohugoio/hugo)
 
 - 🌓 **深色模式** - 自动/手动切换
 
-- ⚡ **超快速度** - Hugo 构建速度极快<p>&nbsp;</p>
+- ⚡ **超快速度** - Hugo 构建速度极快2. **创建新文章**
 
-- 🔍 **内置搜索** - 快速查找文章<p float="left">
+- 🔍 **内置搜索** - 快速查找文章
 
-- 🎨 **代码高亮** - 支持多种编程语言  <a href="https://www.linode.com/?utm_campaign=hugosponsor&utm_medium=banner&utm_source=hugogithub" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/linode-logo_standard_light_medium.png" width="200" alt="Linode"></a>
+- 🎨 **代码高亮** - 支持多种编程语言   ```[Website] | [Installation] | [Documentation] | [Support] | [Contributing] | <a rel="me" href="https://fosstodon.org/@gohugoio">Mastodon</a>
 
-- 🏷️ **标签分类** - 智能组织内容&nbsp;&nbsp;&nbsp;
+- 🏷️ **标签分类** - 智能组织内容
 
-- 📊 **社交分享** - 一键分享到社交平台  <a href="https://www.jetbrains.com/go/?utm_source=OSS&utm_medium=referral&utm_campaign=hugo" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/goland.svg" width="200" alt="The complete IDE crafted for professional Go developers."></a>
+- 📊 **社交分享** - 一键分享到社交平台   双击 new-post.bat
 
-</p>
 
-### 已配置功能
 
-- ✅ 中文界面## Editions
+### 已配置功能   按提示输入文章标题和文件名## Overview
 
-- ✅ 导航菜单（首页、资讯、归档、标签）
+- ✅ 中文界面
 
-- ✅ 文章元信息（日期、阅读时间、标签）Hugo is available in three editions: standard, extended, and extended/deploy. While the standard edition provides core functionality, the extended and extended/deploy editions offer advanced features.
+- ✅ 导航菜单（首页、资讯、归档、标签）   ```
 
-- ✅ 代码复制按钮
+- ✅ 文章元信息（日期、阅读时间、标签）
 
-- ✅ 面包屑导航Feature|extended edition|extended/deploy edition
+- ✅ 代码复制按钮Hugo is a [static site generator] written in [Go], optimized for speed and designed for flexibility. With its advanced templating system and fast asset pipelines, Hugo renders a complete site in seconds, often less.
 
-- ✅ RSS 订阅:--|:-:|:-:
+- ✅ 面包屑导航
 
-Encode to the WebP format when [processing images]. You can decode WebP images with any edition.|:heavy_check_mark:|:heavy_check_mark:
+- ✅ RSS 订阅3. **构建生产版本**
 
-## 📝 编写文章[Transpile Sass to CSS] using the embedded LibSass transpiler. You can use the [Dart Sass] transpiler with any edition.|:heavy_check_mark:|:heavy_check_mark:
+- ✅ GitHub Actions 自动部署
 
-Deploy your site directly to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container. See&nbsp;[details].|:x:|:heavy_check_mark:
+   ```Due to its flexible framework, multilingual support, and powerful taxonomy system, Hugo is widely used to create:
+
+## 📝 编写文章
+
+   双击 build.bat
 
 ### 文章格式模板
 
-[dart sass]: https://gohugo.io/functions/css/sass/#dart-sass
+   静态文件生成在 ai-news-site\public\ 目录- Corporate, government, nonprofit, education, news, event, and project sites
 
-在 `ai-news-site\content\posts\` 目录下创建 `.md` 文件：[processing images]: https://gohugo.io/content-management/image-processing/
+在 `content\posts\` 目录下创建 `.md` 文件：
 
-[transpile sass to css]: https://gohugo.io/functions/css/sass/
+   ```- Documentation sites
 
-```markdown[details]: https://gohugo.io/hosting-and-deployment/hugo-deploy/
+```markdown
+
+---- Image portfolios
+
+title: "文章标题"
+
+date: 2025-11-12T09:00:00+08:00### 方法 2：使用命令行- Landing pages
+
+draft: false          # false=发布, true=草稿
+
+tags: ["AI", "技术"]  # 标签- Business, professional, and personal blogs
+
+categories: ["资讯"]  # 分类
+
+description: "文章简介，会显示在列表页"```bash- Resumes and CVs
 
 ---
 
-title: "文章标题"Unless your specific deployment needs require the extended/deploy edition, we recommend the extended edition.
+# 启动开发服务器
 
-date: 2025-11-12T09:00:00+08:00
+## 标题
 
-draft: false          # false=发布, true=草稿## Installation
-
-tags: ["AI", "技术"]  # 标签
-
-categories: ["资讯"]  # 分类Install Hugo from a [prebuilt binary], package manager, or package repository. Please see the installation instructions for your operating system:
-
-description: "文章简介，会显示在列表页"
-
----- [macOS]
-
-- [Linux]
-
-## 标题- [Windows]
-
-- [DragonFly BSD, FreeBSD, NetBSD, and OpenBSD]
+.\hugo.exe server -D --source ai-news-siteUse Hugo's embedded web server during development to instantly see changes to content, structure, behavior, and presentation. Then deploy the site to your host, or push changes to your Git provider for automated builds and deployment.
 
 正文内容使用 Markdown 格式编写...
 
-## Build from source
+
 
 - 列表项 1
 
-- 列表项 2Prerequisites to build Hugo from source:
+- 列表项 2# 创建新文章Hugo's fast asset pipelines include:
 
 
 
-### 子标题- Standard edition: Go 1.23.0 or later
-
-- Extended edition: Go 1.23.0 or later, and GCC
-
-**粗体文字** *斜体文字*- Extended/deploy edition: Go 1.23.0 or later, and GCC
+### 子标题.\hugo.exe new posts/my-article.md --source ai-news-site
 
 
 
-[链接文本](https://example.com)Build the standard edition:
+**粗体文字** *斜体文字*- Image processing &ndash; Convert, resize, crop, rotate, adjust colors, apply filters, overlay text and images, and extract EXIF data
 
-```
 
-```text
 
-### 示例文章go install github.com/gohugoio/hugo@latest
+[链接文本](https://example.com)# 构建生产版本- JavaScript bundling &ndash; Transpile TypeScript and JSX to JavaScript, bundle, tree shake, minify, create source maps, and perform SRI hashing.
 
 ```
+
+.\hugo.exe --source ai-news-site- Sass processing &ndash; Transpile Sass to CSS, bundle, tree shake, minify, create source maps, perform SRI hashing, and integrate with PostCSS
+
+### 示例文章
+
+```- Tailwind CSS processing &ndash; Compile Tailwind CSS utility classes into standard CSS, bundle, tree shake, optimize, minify, perform SRI hashing, and integrate with PostCSS
 
 项目已包含 3 篇示例文章：
 
-1. **GPT-5即将发布** - 技术突破类Build the extended edition:
+1. **GPT-5即将发布** - 技术突破类
 
 2. **AI医疗新突破** - 应用案例类  
 
-3. **特斯拉FSD更新** - 行业动态类```text
+3. **特斯拉FSD更新** - 行业动态类## ✨ 网站特性And with [Hugo Modules], you can share content, assets, data, translations, themes, templates, and configuration with other projects via public or private Git repositories.
 
-CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+
+
+## 🎨 自定义配置
+
+
+
+编辑 `hugo.toml` 可修改：### PaperMod 主题优势See the [features] section of the documentation for a comprehensive summary of Hugo's capabilities.
+
+- 网站标题、描述
+
+- 导航菜单- ✅ **简约美观** - 专注内容展示
+
+- 主题参数
+
+- 社交链接等- 📱 **完全响应式** - 完美支持移动端## Sponsors
+
+
+
+## 📦 部署到 GitHub Pages- 🌓 **深色模式** - 自动/手动切换
+
+
+
+### 步骤 1：创建 GitHub 仓库- ⚡ **超快速度** - Hugo 构建速度极快<p>&nbsp;</p>
+
+
+
+1. 访问 https://github.com/new- 🔍 **内置搜索** - 快速查找文章<p float="left">
+
+2. 创建名为 `daily-ai-news-blog` 的仓库
+
+3. 不要添加 README、.gitignore 或 License- 🎨 **代码高亮** - 支持多种编程语言  <a href="https://www.linode.com/?utm_campaign=hugosponsor&utm_medium=banner&utm_source=hugogithub" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/linode-logo_standard_light_medium.png" width="200" alt="Linode"></a>
+
+
+
+### 步骤 2：推送代码- 🏷️ **标签分类** - 智能组织内容&nbsp;&nbsp;&nbsp;
+
+
+
+```bash- 📊 **社交分享** - 一键分享到社交平台  <a href="https://www.jetbrains.com/go/?utm_source=OSS&utm_medium=referral&utm_campaign=hugo" target="_blank"><img src="https://raw.githubusercontent.com/gohugoio/gohugoioTheme/master/assets/images/sponsors/goland.svg" width="200" alt="The complete IDE crafted for professional Go developers."></a>
+
+# 添加远程仓库（替换为你的 GitHub 用户名）
+
+git remote add origin https://github.com/你的用户名/daily-ai-news-blog.git</p>
+
+
+
+# 推送代码### 已配置功能
+
+git push -u origin master
+
+```- ✅ 中文界面## Editions
+
+
+
+### 步骤 3：启用 GitHub Pages- ✅ 导航菜单（首页、资讯、归档、标签）
+
+
+
+1. 进入仓库的 Settings > Pages- ✅ 文章元信息（日期、阅读时间、标签）Hugo is available in three editions: standard, extended, and extended/deploy. While the standard edition provides core functionality, the extended and extended/deploy editions offer advanced features.
+
+2. Source 选择 "GitHub Actions"
+
+3. 保存后会自动部署- ✅ 代码复制按钮
+
+
+
+详细说明请查看 [GITHUB_PUSH_GUIDE.md](GITHUB_PUSH_GUIDE.md)- ✅ 面包屑导航Feature|extended edition|extended/deploy edition
+
+
+
+## 🔧 常用命令- ✅ RSS 订阅:--|:-:|:-:
+
+
+
+```bashEncode to the WebP format when [processing images]. You can decode WebP images with any edition.|:heavy_check_mark:|:heavy_check_mark:
+
+# 查看 Hugo 版本
+
+.\hugo.exe version## 📝 编写文章[Transpile Sass to CSS] using the embedded LibSass transpiler. You can use the [Dart Sass] transpiler with any edition.|:heavy_check_mark:|:heavy_check_mark:
+
+
+
+# 启动服务器（包含草稿）Deploy your site directly to a Google Cloud Storage bucket, an AWS S3 bucket, or an Azure Storage container. See&nbsp;[details].|:x:|:heavy_check_mark:
+
+.\hugo.exe server -D
+
+### 文章格式模板
+
+# 启动服务器（仅发布内容）
+
+.\hugo.exe server[dart sass]: https://gohugo.io/functions/css/sass/#dart-sass
+
+
+
+# 创建新文章在 `ai-news-site\content\posts\` 目录下创建 `.md` 文件：[processing images]: https://gohugo.io/content-management/image-processing/
+
+.\hugo.exe new posts/文章名.md
+
+[transpile sass to css]: https://gohugo.io/functions/css/sass/
+
+# 构建网站
+
+.\hugo.exe```markdown[details]: https://gohugo.io/hosting-and-deployment/hugo-deploy/
+
+
+
+# 清理生成的文件---
+
+.\hugo.exe clean
+
+```title: "文章标题"Unless your specific deployment needs require the extended/deploy edition, we recommend the extended edition.
+
+
+
+## 🔄 更新主题date: 2025-11-12T09:00:00+08:00
+
+
+
+```bashdraft: false          # false=发布, true=草稿## Installation
+
+# 更新 PaperMod 主题到最新版本
+
+git submodule update --remote --mergetags: ["AI", "技术"]  # 标签
+
+```
+
+categories: ["资讯"]  # 分类Install Hugo from a [prebuilt binary], package manager, or package repository. Please see the installation instructions for your operating system:
+
+## 📚 资源链接
+
+description: "文章简介，会显示在列表页"
+
+- **Hugo 官方文档**: https://gohugo.io/documentation/
+
+- **PaperMod 主题**: https://github.com/adityatelange/hugo-PaperMod---- [macOS]
+
+- **Markdown 语法**: https://markdown.com.cn/
+
+- **Hugo 主题库**: https://themes.gohugo.io/- [Linux]
+
+
+
+## 💡 使用技巧## 标题- [Windows]
+
+
+
+1. **实时预览**：启动服务器后，修改文章会自动刷新浏览器- [DragonFly BSD, FreeBSD, NetBSD, and OpenBSD]
+
+2. **草稿功能**：设置 `draft: true` 只在开发环境显示
+
+3. **快捷键**：在网站上按 `/` 键快速打开搜索正文内容使用 Markdown 格式编写...
+
+4. **图片资源**：放在 `static\images\` 目录
+
+5. **自定义CSS**：在 `assets\css\` 添加样式## Build from source
+
+
+
+## 🆘 常见问题- 列表项 1
+
+
+
+**Q: 如何修改网站标题？**  - 列表项 2Prerequisites to build Hugo from source:
+
+A: 编辑 `hugo.toml` 中的 `title` 字段
+
+
+
+**Q: 如何添加新的导航菜单？**  
+
+A: 在 `hugo.toml` 的 `[[menu.main]]` 部分添加配置### 子标题- Standard edition: Go 1.23.0 or later
+
+
+
+**Q: 文章不显示？**  - Extended edition: Go 1.23.0 or later, and GCC
+
+A: 检查文章的 `draft` 是否为 `false`，或使用 `-D` 参数启动服务器
+
+**粗体文字** *斜体文字*- Extended/deploy edition: Go 1.23.0 or later, and GCC
+
+**Q: 如何更换主题？**  
+
+A: 访问 https://themes.gohugo.io/ 选择主题，按说明安装配置
+
+
+
+**Q: 推送到 GitHub 时需要什么？**  [链接文本](https://example.com)Build the standard edition:
+
+A: 需要 Git 已配置用户信息，并有 GitHub 账号
+
+```
+
+## 📞 技术栈
+
+```text
+
+- **静态网站生成器**: Hugo v0.146.0 Extended
+
+- **主题**: PaperMod (最新版)### 示例文章go install github.com/gohugoio/hugo@latest
+
+- **部署**: GitHub Pages + GitHub Actions
+
+- **版本控制**: Git```
+
+
+
+## 📄 许可证项目已包含 3 篇示例文章：
+
+
+
+本项目使用的主题 PaperMod 遵循 MIT 许可证。1. **GPT-5即将发布** - 技术突破类Build the extended edition:
+
+
+
+---2. **AI医疗新突破** - 应用案例类  
+
+
+
+**祝您创作愉快！** 🎉3. **特斯拉FSD更新** - 行业动态类```text
+
+
+
+如需帮助，请参考 [GITHUB_PUSH_GUIDE.md](GITHUB_PUSH_GUIDE.md)CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
+
 
 ## 🎨 自定义配置```
 
