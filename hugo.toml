@@ -1,25 +1,30 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://corwen6349.github.io/daily-ai-news-blog/'
 languageCode = 'zh-cn'
+DefaultContentLanguage = "zh-cn"
 title = '每日AI资讯'
-theme = 'PaperMod'
+theme = 'knowing-less'
+enableEmoji = true
+summaryLength = 200
+hasCJKLanguage = true
+copyright = "每日AI资讯"
+
+[pagination]
+  pagerSize = 10
 
 [params]
-  description = "分享最新的人工智能资讯和技术动态"
   author = "AI News Team"
-  
-  # 首页设置
-  homeInfoParams.Title = "欢迎来到每日AI资讯"
-  homeInfoParams.Content = "为您带来最新、最热的人工智能资讯，涵盖技术突破、行业动态、应用案例等。"
-  
-  # 社交图标
-  showShareButtons = true
-  showReadingTime = true
-  showPostNavLinks = true
-  showBreadCrumbs = true
-  showCodeCopyButtons = true
-  
-  # 日期格式
-  DateFormat = "2006-01-02"
+  version = "v1.1.0"
+  debug = false
+  podcastImage = ""
+  podcastRSS = ""
+  since = "2025"
+  description = "分享最新的人工智能资讯和技术动态，涵盖技术突破、行业动态、应用案例等"
+  keywords = ["AI", "人工智能", "资讯", "技术"]
+  mainSections = ["posts"]
+  dateFormatToUse = "2006-01-02"
+  highlightInClient = true
+  katex = false
+  archivePaginate = 20
 
 [[menu.main]]
   name = "首页"
@@ -27,19 +32,28 @@ theme = 'PaperMod'
   weight = 10
 
 [[menu.main]]
-  name = "资讯"
+  name = "文章"
   url = "/posts/"
   weight = 20
 
 [[menu.main]]
-  name = "归档"
-  url = "/archives/"
+  name = "标签"
+  url = "/tags/"
   weight = 30
 
 [[menu.main]]
-  name = "标签"
-  url = "/tags/"
+  name = "分类"
+  url = "/categories/"
   weight = 40
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS"]
