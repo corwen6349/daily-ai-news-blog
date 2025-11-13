@@ -3,15 +3,13 @@ languageCode = 'zh-cn'
 DefaultContentLanguage = "zh-cn"
 title = '每日AI资讯'
 theme = 'knowing-less'
-paginate = 5
 enableEmoji = true
 summaryLength = 200
 hasCJKLanguage = true
 copyright = "每日AI资讯"
 
-[author]
-  name = "corwen"
-  email = "corwen6349@163.com"
+[pagination]
+  pagerSize = 5
 
 [sitemap]
   changefreq = "weekly"
@@ -40,6 +38,9 @@ copyright = "每日AI资讯"
   url = "/categories/"
 
 [params]
+  # 作者信息
+  author = "corwen"
+  
   version = "v1.1.0"
   debug = false
   
