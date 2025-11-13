@@ -13,6 +13,9 @@
     {{ with .OutputFormats.Get "RSS" }}
         <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
     {{ end }}
+
+    <!-- 不蒜子统计 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
@@ -22,5 +25,8 @@
     </main>
     
     {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+
+    <!-- 主题切换脚本 -->
+    <script src="{{ "js/theme.js" | relURL }}"></script>
 </body>
 </html>

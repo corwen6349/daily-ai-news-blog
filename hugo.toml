@@ -23,6 +23,14 @@ copyright = "每日AI资讯"
   # 网站描述
   description = "分享最新的人工智能资讯和技术动态，涵盖技术突破、行业动态、应用案例等"
   keywords = ["AI", "人工智能", "资讯", "技术", "科技"]
+  
+  # Gitalk 评论系统配置
+  [params.gitalk]
+    clientID = "Ov23li7mh1Pju9lkOIVc"
+    clientSecret = "f976a3df2f340607e6c9dc77ab4e710dbedb067a"
+    repo = "daily-ai-news-blog"
+    owner = "corwen6349"
+    admin = "corwen6349"
 
 [markup]
   [markup.goldmark]

@@ -13,6 +13,22 @@
     --bg-secondary: #f9fafb;
     --border-color: #e5e7eb;
     --accent-color: #10b981;
+    --code-bg: #f3f4f6;
+    --pre-bg: #1f2937;
+    --pre-text: #f9fafb;
+}
+
+[data-theme="dark"] {
+    --primary-color: #3b82f6;
+    --text-color: #e5e7eb;
+    --text-light: #9ca3af;
+    --bg-color: #111827;
+    --bg-secondary: #1f2937;
+    --border-color: #374151;
+    --accent-color: #10b981;
+    --code-bg: #374151;
+    --pre-bg: #0f172a;
+    --pre-text: #e5e7eb;
 }
 
 body {
@@ -20,6 +36,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Container */
@@ -37,6 +54,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .header-content {
@@ -56,6 +74,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .main-nav a {
@@ -67,6 +86,52 @@ body {
 
 .main-nav a:hover {
     color: var(--primary-color);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+    position: relative;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    background-color: var(--bg-secondary);
+    transform: rotate(15deg) scale(1.1);
+}
+
+.theme-toggle svg {
+    width: 18px;
+    height: 18px;
+    color: var(--text-color);
+    position: absolute;
+    transition: opacity 0.3s ease;
+}
+
+.theme-toggle .sun-icon {
+    opacity: 1;
+}
+
+.theme-toggle .moon-icon {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+    opacity: 1;
 }
 
 /* Main Content */
@@ -240,7 +305,7 @@ main {
 }
 
 .post-content code {
-    background-color: #f3f4f6;
+    background-color: var(--code-bg);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
@@ -248,8 +313,8 @@ main {
 }
 
 .post-content pre {
-    background-color: #1f2937;
-    color: #f9fafb;
+    background-color: var(--pre-bg);
+    color: var(--pre-text);
     padding: 1rem;
     border-radius: 8px;
     overflow-x: auto;
@@ -354,27 +419,91 @@ main {
 .site-footer {
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
-    padding: 2rem 0;
+    padding: 3rem 0 2rem;
     margin-top: 4rem;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .footer-content {
-    text-align: center;
-    color: var(--text-light);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-.footer-content p {
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-section p {
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
     margin-bottom: 0.5rem;
 }
 
-.footer-content a {
+.footer-section a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+}
+
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom a {
     color: var(--text-light);
     text-decoration: none;
     margin: 0 0.5rem;
 }
 
-.footer-content a:hover {
+.footer-bottom a:hover {
     color: var(--primary-color);
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.comments-section h3 {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+/* View Count */
+.view-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.view-count svg {
+    color: var(--text-light);
 }
 
 /* Responsive */
