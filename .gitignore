@@ -3,6 +3,9 @@ public/
 resources/
 .hugo_build.lock
 
+# 配置文件（包含敏感信息）
+hugo.toml
+
 # OS 文件
 .DS_Store
 Thumbs.db

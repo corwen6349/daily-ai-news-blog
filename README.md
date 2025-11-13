@@ -1,4 +1,282 @@
-# 每日AI资讯网站 📰# 每日AI资讯网站 📰[bep]: https://github.com/bep
+# 每日AI资讯网站 📰
+
+🎉 一个基于 Hugo + 自定义主题的静态资讯展示网站
+
+## 📁 项目结构
+
+```
+daily_ai_news_blog/
+├── .github/              # GitHub Actions 配置
+│   └── workflows/
+│       └── deploy.yml    # 自动部署到 GitHub Pages
+├── content/              # 内容目录
+│   └── posts/           # AI资讯文章存放处
+├── themes/              # 主题目录
+│   └── ai-daily/        # 自定义 AI Daily 主题
+├── hugo.toml            # 网站配置文件（包含敏感信息，已加入 .gitignore）
+├── hugo.toml.example    # 配置文件模板
+├── public/              # 生成的静态文件（构建后）
+├── start-server.bat     # 启动开发服务器
+├── build.bat            # 构建生产版本
+├── new-post.bat         # 快速创建新文章
+└── README.md            # 项目说明文档
+```
+
+## ⚙️ 首次配置
+
+### 1. 配置文件设置
+
+复制配置模板并填入你的信息：
+
+```bash
+copy hugo.toml.example hugo.toml
+```
+
+然后编辑 `hugo.toml`，配置 Gitalk 评论系统：
+
+```toml
+[params.gitalk]
+  clientID = "你的_GitHub_OAuth_Client_ID"
+  clientSecret = "你的_GitHub_OAuth_Client_Secret"
+  repo = "daily-ai-news-blog"
+  owner = "corwen6349"
+  admin = "corwen6349"
+```
+
+**获取 Client ID 和 Secret 的步骤：**
+1. 访问 https://github.com/settings/developers
+2. 点击 "New OAuth App"
+3. 填写应用信息（Homepage URL 和 Callback URL 都填写你的 GitHub Pages 地址）
+4. 创建后获取 Client ID 和生成 Client Secret
+
+详细配置说明请查看 `GITALK_SETUP.md`
+
+## 🚀 快速开始
+
+### 方法 1：使用批处理脚本（推荐）
+
+1. **启动开发服务器**
+   ```
+   双击 start-server.bat
+   浏览器访问：http://localhost:1313
+   ```
+
+2. **创建新文章**
+   ```
+   双击 new-post.bat
+   按提示输入文章标题和文件名
+   ```
+
+3. **构建生产版本**
+   ```
+   双击 build.bat
+   静态文件生成在 public\ 目录
+   ```
+
+### 方法 2：使用命令行
+
+```bash
+# 启动开发服务器
+.\hugo.exe server -D
+
+# 创建新文章
+.\hugo.exe new posts/my-article.md
+
+# 构建生产版本
+.\hugo.exe
+```
+
+## ✨ 网站特性
+
+### AI Daily 主题特点
+
+- ✅ **简约现代** - 专为 AI 资讯设计
+- 📱 **完全响应式** - 完美支持移动端
+- 🌓 **深色/浅色模式** - 右上角一键切换，支持跟随系统
+- ⚡ **超快速度** - Hugo 静态站点生成
+- 💬 **Gitalk 评论** - 基于 GitHub Issues 的评论系统
+- 👁️ **浏览统计** - 不蒜子统计，显示访问量和阅读次数
+- 🏷️ **标签分类** - 智能组织内容
+- 🎨 **代码高亮** - 支持多种编程语言
+- 📊 **网站统计** - 页脚显示总访问量和访客数
+
+### 已配置功能
+
+- ✅ 中文界面
+- ✅ 导航菜单（首页、文章、标签、分类）
+- ✅ 文章元信息（日期、标签、分类）
+- ✅ 文章阅读统计
+- ✅ 评论系统
+- ✅ 主题切换（深色/浅色/自动）
+- ✅ RSS 订阅
+- ✅ GitHub Actions 自动部署
+
+## 📝 编写文章
+
+### 文章格式模板
+
+在 `content\posts\` 目录下创建 `.md` 文件：
+
+```markdown
+---
+title: "文章标题"
+date: 2025-11-13T09:00:00+08:00
+draft: false          # false=发布, true=草稿
+tags: ["AI", "技术"]  # 标签
+categories: ["资讯"]  # 分类
+description: "文章简介，会显示在列表页"
+---
+
+## 标题
+
+正文内容使用 Markdown 格式编写...
+
+- 列表项 1
+- 列表项 2
+
+### 子标题
+
+**粗体文字** *斜体文字*
+
+[链接文本](https://example.com)
+```
+
+## 🎨 自定义配置
+
+编辑 `hugo.toml` 可修改：
+- 网站标题、描述
+- 导航菜单
+- 评论系统配置
+- 统计功能等
+
+## 📦 部署到 GitHub Pages
+
+### 步骤 1：创建 GitHub 仓库
+
+1. 访问 https://github.com/new
+2. 创建名为 `daily-ai-news-blog` 的仓库
+3. 不要添加 README、.gitignore 或 License
+
+### 步骤 2：推送代码
+
+```bash
+# 添加远程仓库（替换为你的 GitHub 用户名）
+git remote add origin https://github.com/你的用户名/daily-ai-news-blog.git
+
+# 推送代码
+git push -u origin master
+```
+
+### 步骤 3：启用 GitHub Pages
+
+1. 进入仓库的 Settings > Pages
+2. Source 选择 "GitHub Actions"
+3. 保存后会自动部署
+
+详细说明请查看 [GITHUB_PUSH_GUIDE.md](GITHUB_PUSH_GUIDE.md)
+
+## 🔧 常用命令
+
+```bash
+# 查看 Hugo 版本
+.\hugo.exe version
+
+# 启动服务器（包含草稿）
+.\hugo.exe server -D
+
+# 启动服务器（仅发布内容）
+.\hugo.exe server
+
+# 创建新文章
+.\hugo.exe new posts/文章名.md
+
+# 构建网站
+.\hugo.exe
+
+# 清理生成的文件
+.\hugo.exe clean
+```
+
+## 🔄 更新和提交
+
+```bash
+# 查看更改
+git status
+
+# 添加所有更改
+git add .
+
+# 提交更改
+git commit -m "描述你的更改"
+
+# 推送到 GitHub（自动触发部署）
+git push
+```
+
+## 📚 资源链接
+
+- **Hugo 官方文档**: https://gohugo.io/documentation/
+- **Markdown 语法**: https://markdown.com.cn/
+- **Hugo 主题库**: https://themes.gohugo.io/
+- **Gitalk 文档**: https://github.com/gitalk/gitalk
+
+## 💡 使用技巧
+
+1. **实时预览**：启动服务器后，修改文章会自动刷新浏览器
+2. **草稿功能**：设置 `draft: true` 只在开发环境显示
+3. **图片资源**：放在 `static\images\` 目录
+4. **主题切换**：点击右上角按钮切换深色/浅色模式
+5. **评论管理**：评论存储在 GitHub Issues 中，可在仓库管理
+
+## 🆘 常见问题
+
+**Q: 如何修改网站标题？**  
+A: 编辑 `hugo.toml` 中的 `title` 字段
+
+**Q: 如何添加新的导航菜单？**  
+A: 修改主题的 `layouts/partials/header.html` 文件
+
+**Q: 文章不显示？**  
+A: 检查文章的 `draft` 是否为 `false`，或使用 `-D` 参数启动服务器
+
+**Q: 评论功能不工作？**  
+A: 确保已正确配置 `hugo.toml` 中的 Gitalk 参数，并启用了仓库的 Issues 功能
+
+**Q: 主题切换不工作？**  
+A: 清除浏览器缓存（Ctrl + Shift + R）强制刷新
+
+**Q: 如何保护敏感配置？**  
+A: `hugo.toml` 已在 `.gitignore` 中，不会被提交到仓库
+
+## 📞 技术栈
+
+- **静态网站生成器**: Hugo v0.146.0 Extended
+- **主题**: AI Daily（自定义）
+- **评论系统**: Gitalk
+- **统计**: 不蒜子
+- **部署**: GitHub Pages + GitHub Actions
+- **版本控制**: Git
+
+## ⚠️ 安全注意事项
+
+- ✅ `hugo.toml` 已加入 `.gitignore`，不会提交到仓库
+- ✅ 使用 `hugo.toml.example` 作为公开的配置模板
+- ⚠️ 请勿将包含 Client Secret 的配置文件提交到公共仓库
+- 💡 团队协作时，可通过私密渠道分享真实配置文件
+
+## 📄 许可证
+
+本项目基于 MIT 许可证开源。
+
+---
+
+**祝您创作愉快！** 🎉
+
+如需帮助，请参考：
+- [Gitalk 配置指南](GITALK_SETUP.md)
+- [GitHub 推送指南](GITHUB_PUSH_GUIDE.md)
+- [快速开始指南](QUICK_START.md)
+
 
 
 

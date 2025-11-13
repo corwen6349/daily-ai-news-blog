@@ -25,9 +25,10 @@ copyright = "每日AI资讯"
   keywords = ["AI", "人工智能", "资讯", "技术", "科技"]
   
   # Gitalk 评论系统配置
+  # 请将此文件复制为 hugo.toml 并填入真实的 Client ID 和 Secret
   [params.gitalk]
-    clientID = "Ov23li7mh1Pju9lkOIVc"
-    clientSecret = "f976a3df2f340607e6c9dc77ab4e710dbedb067a"
+    clientID = "your_github_oauth_app_client_id"
+    clientSecret = "your_github_oauth_app_client_secret"
     repo = "daily-ai-news-blog"
     owner = "corwen6349"
     admin = "corwen6349"
