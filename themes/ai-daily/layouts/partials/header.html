@@ -1,0 +1,15 @@
+<header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <a href="{{ .Site.BaseURL }}" class="site-title">{{ .Site.Title }}</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="{{ .Site.BaseURL }}">首页</a></li>
+                    <li><a href="{{ "posts" | relURL }}">文章</a></li>
+                    <li><a href="{{ "tags" | relURL }}">标签</a></li>
+                    <li><a href="{{ "categories" | relURL }}">分类</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

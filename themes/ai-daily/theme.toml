@@ -1,0 +1,12 @@
+name = "AI Daily"
+license = "MIT"
+licenselink = "https://github.com/corwen6349/daily-ai-news-blog/blob/master/LICENSE"
+description = "A clean and modern Hugo theme for AI news and daily updates"
+homepage = "https://github.com/corwen6349/daily-ai-news-blog"
+tags = ["blog", "news", "ai", "clean", "minimal", "responsive"]
+features = ["responsive", "clean design", "syntax highlighting", "tags", "categories"]
+min_version = "0.146.0"
+
+[author]
+  name = "Corwen"
+  homepage = "https://github.com/corwen6349"
