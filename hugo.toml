@@ -11,20 +11,73 @@ copyright = "每日AI资讯"
 [pagination]
   pagerSize = 10
 
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
 [params]
   author = "AI News Team"
   version = "v1.1.0"
   debug = false
-  podcastImage = ""
+  
+  # 网站图片
+  podcastImage = "https://picsum.photos/500/500"
+  
+  # RSS Feed
   podcastRSS = ""
+  
+  # 网站创建时间
   since = "2025"
+  
+  # 网站描述
   description = "分享最新的人工智能资讯和技术动态，涵盖技术突破、行业动态、应用案例等"
-  keywords = ["AI", "人工智能", "资讯", "技术"]
+  keywords = ["AI", "人工智能", "资讯", "技术", "科技"]
+  
+  # 主页显示的内容类型
   mainSections = ["posts"]
+  
+  # 日期格式
   dateFormatToUse = "2006-01-02"
+  
+  # 代码高亮
   highlightInClient = true
+  
+  # 数学公式支持
   katex = false
+  
+  # 归档、标签和分类的分页数
   archivePaginate = 20
+  
+  # 百度验证
+  baiduVerification = ""
+  
+  # Google 验证
+  googleVerification = ""
+  
+  # 自定义 CSS 和 JS
+  customCSS = []
+  customJS = []
+  
+  # 微信公众号二维码
+  weChatQRCode = ""
+
+  # 社交链接（显示在侧边栏）
+  [[params.links]]
+    title = "GitHub"
+    fontAwesomeIcon = "fab fa-github"
+    link = "https://github.com/corwen6349/daily-ai-news-blog"
+    svg = ""
+  [[params.links]]
+    title = "RSS"
+    fontAwesomeIcon = "fas fa-rss"
+    link = "/index.xml"
+    svg = ""
+  [[params.links]]
+    title = "Email"
+    fontAwesomeIcon = "fas fa-envelope"
+    link = "mailto:your-email@example.com"
+    svg = ""
 
 [[menu.main]]
   name = "首页"
