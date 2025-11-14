@@ -272,6 +272,15 @@ main {
     line-height: 1.8;
 }
 
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+    scroll-margin-top: 80px;
+}
+
 .post-content h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
@@ -285,8 +294,34 @@ main {
     font-size: 1.5rem;
 }
 
+.post-content h4 {
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
 .post-content p {
     margin-bottom: 1rem;
+}
+
+.post-content ul, .post-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+    transition: border-bottom 0.2s;
+}
+
+.post-content a:hover {
+    border-bottom: 2px solid var(--primary-color);
 }
 
 .post-content ul, .post-content ol {
