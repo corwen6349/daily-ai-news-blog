@@ -36,6 +36,11 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Create hugo.toml from template
+        run: |
+          cp hugo.toml.example hugo.toml
+          sed -i 's/your_github_oauth_app_client_id/${{ secrets.GITALK_CLIENT_ID }}/g' hugo.toml
+          sed -i 's/your_github_oauth_app_client_secret/${{ secrets.GITALK_CLIENT_SECRET }}/g' hugo.toml
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
